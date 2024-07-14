@@ -14,17 +14,16 @@
 - Extensible design to add more frame types and functionalities.
 
 ## Development goals
-
-[] i2c interface working
-[] spi interface working
-[] esp32 simple example (get firmware version)
-[] raspiberry pi pico simple example (get firmware version)
-[] read mifare
-[] ISO14443A tag
-[] NTAG203 or NTAG213 tag reader/writer
-[] NFC example
-[] RFID example
-[] HSU interface
+[ ] i2c interface working
+[ ] spi interface working
+[ ] esp32 simple example (get firmware version)
+[ ] raspiberry pi pico simple example (get firmware version)
+[ ] read mifare
+[ ] ISO14443A tag
+[ ] NTAG203 or NTAG213 tag reader/writer
+[ ] NFC example
+[ ] RFID example
+[ ] HSU interface
 
 
 ## Installation
