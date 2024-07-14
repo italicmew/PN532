@@ -1,7 +1,5 @@
 # PN532 Rust Library
 
-[![crates.io](https://img.shields.io/crates/v/pn532.svg)]()
-[![Docs](https://docs.rs/pn532/badge.svg)]()
 [![License](https://img.shields.io/crates/l/pn532.svg)](https://github.com/italicmew/pn532/blob/main/LICENSE)
 
 ## Introduction
@@ -37,6 +35,8 @@ Add the following to your `Cargo.toml`:
 [dependencies]
 embedded-hal = "0.2"  # or the latest version available
 pn532 = "0.1"  # Replace with the actual version
+
+```
 
 ## Usage
 
