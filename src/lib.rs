@@ -1,6 +1,6 @@
 #![no_std]
 
-use interface::{PN532Error, WriteFrame};
+use interface::{PN532Error, ReadFrame, WriteFrame};
 
 mod i2c;
 mod interface;
@@ -11,11 +11,24 @@ pub struct PN532<T> {
 
 impl<T, InterfaceError> PN532 <T>
 where T: WriteFrame<Error = PN532Error<InterfaceError>>
+        + ReadFrame<Error = PN532Error<InterfaceError>>
 {
-
     // Communication between the host controller and the PN532 is performed through frames, in a half-duplex mode.
     // Four different types of frames are used in one or both directions (host controller to the 
     // PN532 and PN532 to the host controller).
+
+    pub fn send_command(self, command: u8, params: &[u8]) -> Result<(), PN532Error<InterfaceError>> {
+        let mut buff = [0u8; 255];
+        buff[0] = 0xD4;
+        buff[1] = command;
+
+        for (i, &byte) in params.iter().enumerate() {
+            buff[2 + i] = byte;
+        }
+
+        self.create_frame(&buff)
+    }
+
 
     pub fn create_frame(mut self, data: &[u8]) -> Result<(), PN532Error<InterfaceError>> {
         let mut frame = [0u8; 255 + 7];
